@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Organizations</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{${#httpServletRequest.requestURL}}" th:object="${updateRequest}" method="post">
+        <p>ID:</p>
+        <p th:text="${orgId}"></p>
+        <p>New name:
+            <input type="text" th:field="*{name}" />
+        </p>
+        <p><input type="submit" value="Submit" placeholder="Enter Organization Name" /></p>
+    </form>
+</div>
+
+</body>
+</html>

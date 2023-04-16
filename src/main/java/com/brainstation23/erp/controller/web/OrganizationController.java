@@ -35,13 +35,13 @@ public class OrganizationController {
 
         log.info("Getting List of Organizations");
         var domains = organizationService.getAll(PageRequest.of(0, 20));
-        model.addAttribute("organizationList", domains);//domains.toList());
+        model.addAttribute("organizationList", domains);
 
         var response = ResponseEntity.ok(domains.map(organizationMapper::domainToResponse));
         if (response.getStatusCode().isError()){
             return response.toString();
         }
-        return "organizations";
+        return "organization/organizations";
     }
 
     @Operation(summary = "GET organization creation form")
@@ -49,7 +49,7 @@ public class OrganizationController {
     public ModelAndView createOrganizationView(){
 
         return new ModelAndView(
-                "createOrganization",
+                "organization/createOrganization",
                 "createRequest",
                 new CreateOrganizationRequest()
         );
@@ -75,7 +75,7 @@ public class OrganizationController {
 
         model.addAttribute("orgId", orgId);
 
-        return new ModelAndView("updateOrganizations",
+        return new ModelAndView("organization/updateOrganization",
                 "updateRequest",
                 new UpdateOrganizationRequest()
         );
@@ -97,7 +97,7 @@ public class OrganizationController {
     @GetMapping("/delete/{orgId}")
     public String deleteOrganizationView(Model model, @PathVariable UUID orgId){
         model.addAttribute("orgId", orgId);
-        return "deleteOrganization";
+        return "organization/deleteOrganization";
     }
 
     @Operation(summary = "Delete Single Organization")

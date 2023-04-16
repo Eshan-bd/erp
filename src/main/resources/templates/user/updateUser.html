@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Organizations</title>
+</head>
+<body>
+
+<div>
+    <h1>Update User</h1>
+    <form th:action="@{${#httpServletRequest.requestURL}}" th:object="${updateRequest}" method="post">
+        <p>ID:
+            <span th:text="${id}"></span></p>
+        <p>First name:
+            <input type="text" th:required="true" th:field="*{firstName}" />
+        </p>
+        <p>Last name:
+            <input type="text" th:required="true" th:field="*{lastName}" />
+        </p>
+        <p>Balance:
+            <input type="text" th:required="true" th:field="*{balance}" th:placeholder="${userBalance}"/>
+        </p>
+        <p>Role:
+            <select name=Role th:field="*{role}">
+            <option th:value="EMPLOYEE" >Employee</option>
+            <option th:value="ADMIN" >Admin</option>
+        </select>
+        </p>
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+</div>
+
+</body>
+</html>

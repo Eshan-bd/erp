@@ -45,6 +45,9 @@ dependencies {
 	// api doc: swagger
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
 
+	// database
+	implementation 'mysql:mysql-connector-java:8.0.15'
+
 	// configuration processor
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 

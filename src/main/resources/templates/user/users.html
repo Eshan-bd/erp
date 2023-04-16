@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Organizations</title>
+</head>
+<body>
+
+<div class="list">
+    <h1>Users List</h1>
+
+    <div th:if="${param.created}">
+        User Created Successfully.
+    </div>
+
+    <div th:if="${param.update}">
+        User Updated Successfully.
+    </div>
+    <div th:if="${param.deleted}">
+        User Deleted Successfully.
+    </div>
+
+    <a th:href="@{~/users/create}">Create User</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody th:each="myUser : ${userList.content}">
+
+        <div th:unless="${param.edit}">
+            <tr>
+                <td th:text="*{myUser.id}"></td>
+                <td th:text="*{myUser.firstName}+ ' ' +${myUser.lastName}"></td>
+                <td th:text="*{myUser.balance}" ></td>
+                <td th:text="*{myUser.role}"></td>
+                <td> <a th:href="@{users/update/{id}(id=${myUser.id})}" class="btn btn-primary">Edit</a> </td>
+                <td> <a th:href="@{users/delete/{id}(id=${myUser.id})}" class="btn btn-primary">Delete</a> </td>
+            </tr>
+        </div>
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

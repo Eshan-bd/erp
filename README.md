@@ -3,11 +3,11 @@
 Project for Trainees
 
 ## Client Requirement
-As a Guest user, I can
+As a Guest myUser, I can
 - view homepage
-- Sign Up to be an employee with minimal information
+- Sign Up to be an myUser with minimal information
 
-As an Admin user, I can
+As an Admin myUser, I can
 - Log in
 - VIEW & EDIT my profile info (first name, last name...)
 - CRUD Users
@@ -16,7 +16,7 @@ As an Admin user, I can
 - CRUD Employees
 - Log out
 
-As an Employee user, I can
+As an Employee myUser, I can
 - Log in
 - VIEW & EDIT my profile info (first name, last name...)
 - VIEW My Account Balance
