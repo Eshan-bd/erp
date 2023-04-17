@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -37,7 +37,7 @@
         <div th:unless="${param.edit}">
             <tr>
                 <td th:text="*{myUser.id}"></td>
-                <td th:text="*{myUser.firstName}+ ' ' +${myUser.lastName}"></td>
+                <td th:text="*{myUser.firstName}+ ' ' +*{myUser.lastName}"></td>
                 <td th:text="*{myUser.balance}" ></td>
                 <td th:text="*{myUser.role}"></td>
                 <td> <a th:href="@{users/update/{id}(id=${myUser.id})}" class="btn btn-primary">Edit</a> </td>

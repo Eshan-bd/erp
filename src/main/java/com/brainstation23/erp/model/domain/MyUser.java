@@ -18,4 +18,5 @@ public class MyUser {
 	private String firstName;
 	private String lastName;
 	private Integer balance;
+	private String password;
 }

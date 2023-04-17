@@ -7,8 +7,6 @@ import com.brainstation23.erp.model.dto.CreateUserRequest;
 import com.brainstation23.erp.model.dto.UpdateOrganizationRequest;
 import com.brainstation23.erp.model.dto.UpdateUserRequest;
 import com.brainstation23.erp.service.UserService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -21,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.UUID;
 
-@Tag(name = "User")
 @Slf4j
 @RequiredArgsConstructor
 @Controller
@@ -32,7 +29,6 @@ public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
 
-    @Operation(summary = "GET user list")
     @GetMapping
     public String users(Model model){
 
@@ -47,7 +43,6 @@ public class UserController {
         return "user/users";
     }
 
-    @Operation(summary = "GET user creation form")
     @GetMapping("/create")
     public ModelAndView createUserView(){
 
@@ -58,7 +53,6 @@ public class UserController {
         );
     }
 
-    @Operation(summary = "Create Single User")
     @PostMapping("/create")
     public String createOne(@ModelAttribute CreateUserRequest createRequest,
                             BindingResult result) {
@@ -72,7 +66,6 @@ public class UserController {
         return "redirect:/users?created";
     }
 
-    @Operation(summary = "GET update user form")
     @GetMapping("/update/{id}")
     public ModelAndView updateUserView(Model model, @PathVariable UUID id){
 
@@ -85,7 +78,6 @@ public class UserController {
         );
     }
 
-    @Operation(summary = "Update Single user")
     @PostMapping("/update/{id}")
     public String updateOne(@PathVariable UUID id,
                             @ModelAttribute("updateRequest") UpdateUserRequest updateRequest){
@@ -98,7 +90,6 @@ public class UserController {
         return "redirect:/users?updated";
     }
 
-    @Operation(summary = "GET delete user form")
     @GetMapping("/delete/{id}")
     public ModelAndView deleteUserView(Model model, @PathVariable UUID id){
         model.addAttribute("id", id);
@@ -110,7 +101,6 @@ public class UserController {
 
     }
 
-    @Operation(summary = "Delete Single user")
     @PostMapping("/delete/{id}")
     public String deleteOne(@PathVariable UUID id) {
         log.info("Deleting a user({}) ", id);

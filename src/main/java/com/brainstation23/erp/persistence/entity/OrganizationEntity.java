@@ -10,9 +10,11 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
-@Entity(name = EntityConstant.ORGANIZATION)
+@Entity
+@Table(name = EntityConstant.ORGANIZATION)
 @Getter
 @Setter
 @Accessors(chain = true)
