@@ -22,6 +22,7 @@ public class UserEntity {
 	@Id
 	@Type(type = "uuid-char")
 	private UUID id;
+	private String userName;
 	private ROLE role;
 	private String firstName;
 	private String lastName;

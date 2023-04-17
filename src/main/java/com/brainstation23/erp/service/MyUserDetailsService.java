@@ -2,6 +2,8 @@ package com.brainstation23.erp.service;
 
 import com.brainstation23.erp.exception.custom.custom.IncorrectEmailOrPassword;
 import com.brainstation23.erp.persistence.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,26 +21,19 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 
+@Slf4j
+@RequiredArgsConstructor
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
-    private static final Logger log = LoggerFactory.getLogger(MyUserDetailsService.class);
-
-    @Autowired
-    public MyUserDetailsService(UserRepository userRepository) {
-
-        this.userRepository = userRepository;
-    }
 
     @Override
-    public UserDetails loadUserByUsername(String firstName) throws UsernameNotFoundException {
-        log.info("looking for user");
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        var myUser = userRepository.findByFirstName(userName)
+                .orElseThrow(() -> new UsernameNotFoundException(
+                        "Username " + userName + " not found."));
 
-        var myUser = userRepository.findByFirstName(firstName)
-                .orElseThrow(() -> new UsernameNotFoundException("User name not found."));
-
-        log.info("found user for auth.");
 
         var grantedAuthorities = Collections.unmodifiableList(
                 AuthorityUtils.createAuthorityList(myUser.getRole().toString()));

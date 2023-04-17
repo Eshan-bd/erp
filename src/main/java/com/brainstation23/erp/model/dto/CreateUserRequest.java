@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class CreateUserRequest {
 	@NotNull
+	private String userName;
+	@NotNull
 	private ROLE role;
 	@NotNull
 	private String firstName;

@@ -12,14 +12,23 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Collections;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class UserService {
+public class UserService{
 	public static final String USER_NOT_FOUND = "User Not Found";
 	private final UserRepository userRepository;
 	private final UserMapper userMapper;
@@ -44,6 +53,7 @@ public class UserService {
 		var entity = new UserEntity();
 		entity.setId(UUID.randomUUID())
 				.setRole(createRequest.getRole())
+				.setUserName(createRequest.getUserName())
 				.setFirstName(createRequest.getFirstName())
 				.setLastName(createRequest.getLastName())
 				.setBalance(createRequest.getBalance());

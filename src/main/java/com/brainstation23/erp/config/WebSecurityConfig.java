@@ -2,6 +2,9 @@ package com.brainstation23.erp.config;
 
 import com.brainstation23.erp.constant.ROLE;
 import com.brainstation23.erp.service.MyUserDetailsService;
+import com.brainstation23.erp.service.UserService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,16 +21,13 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 
+@Slf4j
+@RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
     private final MyUserDetailsService myUserDetailsService;
-
-    @Autowired
-    public WebSecurityConfig(MyUserDetailsService myUserDetailsService) {
-        this.myUserDetailsService = myUserDetailsService;
-    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -37,8 +37,8 @@ public class WebSecurityConfig {
                                 "users", "/users/create", "/users/update", "/users/delete",
                                 "/organizations/create", "/organizations/update", "/organizations/delete"
                         ).hasAuthority(ROLE.ADMIN.toString())
-                                .antMatchers("/", "/styles.css").permitAll()
-                                .anyRequest().authenticated()
+                        .antMatchers("/", "/styles.css").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login").permitAll())
