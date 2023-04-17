@@ -9,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.UUID;
 
@@ -27,7 +29,7 @@ class LoadDatabase {
                     "Karim",
                     "Rahman",
                     400,
-                    new BCryptPasswordEncoder().encode("1234")
+                    "{bcrypt}" + new BCryptPasswordEncoder().encode("pass")
             )));
 
             log.info("Preloading " + userRepository.save(new UserEntity(
@@ -36,7 +38,7 @@ class LoadDatabase {
                     "Rahim",
                     "Uddin",
                     700,
-                    new BCryptPasswordEncoder().encode("1234")
+                    "{bcrypt}" + new BCryptPasswordEncoder().encode("1234")
             )));
         };
     }

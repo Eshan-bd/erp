@@ -33,7 +33,10 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .antMatchers("/users/create", "/users/update").hasAuthority(ROLE.ADMIN.toString()) //.hasRole(ROLE.ADMIN.toString())
+                        .antMatchers(
+                                "users", "/users/create", "/users/update", "/users/delete",
+                                "/organizations/create", "/organizations/update", "/organizations/delete"
+                        ).hasAuthority(ROLE.ADMIN.toString())
                                 .antMatchers("/", "/styles.css").permitAll()
                                 .anyRequest().authenticated()
                 )
@@ -42,12 +45,6 @@ public class WebSecurityConfig {
                 .logout((logout) -> logout.permitAll());
 
         return http.build();
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService(){
-
-        return this.myUserDetailsService;
     }
 
     @Bean
