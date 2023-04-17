@@ -31,10 +31,10 @@ As an Employee myUser, I can
 
 ## Features
 - [ ] Server-Side (using Template Engine)
-   - [ ] /login ()
-   - [ ] /users
+   - [x] /login ()
+   - [x] /users
    - [ ] /roles
-   - [ ] /organizations
+   - [x] /organizations
    - [ ] /employees
 - [ ] REST API
    - [ ] /api/login (JWT)
@@ -45,11 +45,11 @@ As an Employee myUser, I can
 - [x] API Doc: Swagger
 - [x] Mapper: Mapstruct
 - [x] Code Formatter: Spotless
-- [ ] Apply Spring Security
+- [x] Apply Spring Security
 - [ ] Global Exception Handler
 - [ ] Implement JPA Auditing
 - [ ] Write Unit Test
-- [ ] Setup different database driver in different profile
+- [x] Setup different database driver in different profile
 - [ ] Upgrade to Spring Boot 3
 - [ ] Deployment (profile: develop)
 - [ ] Update Documentation (README.md)
