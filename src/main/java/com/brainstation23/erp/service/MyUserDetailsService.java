@@ -30,7 +30,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        var myUser = userRepository.findByFirstName(userName)
+        var myUser = userRepository.findByUserName(userName)
                 .orElseThrow(() -> new UsernameNotFoundException(
                         "Username " + userName + " not found."));
 

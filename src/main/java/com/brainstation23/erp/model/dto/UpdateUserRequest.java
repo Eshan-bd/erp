@@ -18,4 +18,5 @@ public class UpdateUserRequest {
 	@NotNull
 	private String lastName;
 	private Integer balance;
+	private String password;
 }

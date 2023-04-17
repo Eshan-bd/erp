@@ -16,6 +16,8 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -56,7 +58,8 @@ public class UserService{
 				.setUserName(createRequest.getUserName())
 				.setFirstName(createRequest.getFirstName())
 				.setLastName(createRequest.getLastName())
-				.setBalance(createRequest.getBalance());
+				.setBalance(createRequest.getBalance())
+				.setPassword(PasswordEncoderFactories.createDelegatingPasswordEncoder().encode(createRequest.getPassword()));
 		var createdEntity = userRepository.save(entity);
 		return createdEntity.getId();
 	}
@@ -84,4 +87,21 @@ public class UserService{
 
 	}
 
+	public MyUser getOneByUserName(String userName){
+		var entity = userRepository.findByUserName(userName)
+				.orElseThrow(() -> new NotFoundException(USER_NOT_FOUND));
+
+		return userMapper.entityToDomain(entity);
+	}
+
+	public void updateOne(String name, UpdateUserRequest updateRequest) {
+		var entity = userRepository.findByUserName(name)
+				.orElseThrow(() -> new NotFoundException(USER_NOT_FOUND));
+
+		entity.setFirstName(updateRequest.getFirstName())
+				.setLastName((updateRequest.getLastName()))
+				.setPassword(updateRequest.getPassword());
+
+		userRepository.save(entity);
+	}
 }

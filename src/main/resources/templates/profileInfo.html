@@ -5,15 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Profile Information</h2>
+<h2>Profile Informations</h2>
 
-<form>
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname"><br><br>
-  <label for="lname">Password:</label><br>
-  <input type="text" id="lname" name="lname"><br><br>
+<form th:action="@{${#httpServletRequest.requestURL}}" th:object="${updateRequest}" method="post">
+    <p>
+  <label>First name:</label>
+  <input type="text" th:required="true" th:field="*{firstName}">
+    </p>
+    <p>
+  <label>Last name:</label>
+  <input type="text" th:required="true" th:field="*{lastName}">
+    </p>
+    <p>
+  <label>Password:</label>
+  <input type="password" th:required="true" th:field="*{password}">
+    </p>
   <input type="submit" value="Submit">
 </form>
 

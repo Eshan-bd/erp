@@ -14,6 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class MyUser {
 	private UUID id;
+	private String userName;
 	private ROLE role;
 	private String firstName;
 	private String lastName;

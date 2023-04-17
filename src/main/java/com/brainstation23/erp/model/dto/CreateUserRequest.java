@@ -20,4 +20,5 @@ public class CreateUserRequest {
 	@NotNull
 	private String lastName;
 	private Integer balance;
+	private String password;
 }
