@@ -6,6 +6,5 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry){
         registry.addViewController("/style.css").setViewName("style.css");
-        registry.addViewController("/organization/employees.html").setViewName("organizations");
     }
 }
