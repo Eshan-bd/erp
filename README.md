@@ -46,7 +46,7 @@ As an Employee myUser, I can
 - [x] Mapper: Mapstruct
 - [x] Code Formatter: Spotless
 - [x] Apply Spring Security
-- [ ] Global Exception Handler
+- [x] Global Exception Handler
 - [ ] Implement JPA Auditing
 - [ ] Write Unit Test
 - [x] Setup different database driver in different profile
