@@ -20,7 +20,7 @@ import java.util.UUID;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrganizationEntity {
+public class OrganizationEntity extends Auditable<String>{
 	@Id
 	@Type(type = "uuid-char")
 	private UUID id;
