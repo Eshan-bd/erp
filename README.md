@@ -48,7 +48,7 @@ As an Employee myUser, I can
 - [x] Apply Spring Security
 - [x] Global Exception Handler
 - [ ] Implement JPA Auditing
-- [ ] Write Unit Test
+- [x] Write Unit Test
 - [x] Setup different database driver in different profile
 - [ ] Upgrade to Spring Boot 3
 - [ ] Deployment (profile: develop)
