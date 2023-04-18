@@ -1,6 +1,9 @@
 package com.brainstation23.erp.persistence.entity;
 
 import com.brainstation23.erp.constant.EntityConstant;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,9 +11,6 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
@@ -22,7 +22,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class OrganizationEntity extends Auditable<String>{
 	@Id
-	@Type(type = "uuid-char")
 	private UUID id;
 	private String name;
 	private String code;

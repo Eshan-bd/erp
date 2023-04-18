@@ -2,8 +2,7 @@ package com.brainstation23.erp.model.dto;
 
 import com.brainstation23.erp.constant.ROLE;
 import lombok.*;
-
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor

@@ -3,7 +3,6 @@ package com.brainstation23.erp.service;
 import com.brainstation23.erp.constant.ROLE;
 import com.brainstation23.erp.persistence.entity.UserEntity;
 import com.brainstation23.erp.persistence.repository.UserRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +11,6 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Slf4j
 @SpringBootTest
 public class MyUserDetailsServiceTest {
     private final MyUserDetailsService myUserDetailsService;
