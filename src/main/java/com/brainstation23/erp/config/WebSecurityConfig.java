@@ -30,7 +30,7 @@ public class WebSecurityConfig {
                                 "/users", "/users/create", "/users/update", "/users/delete",
                                 "/organizations/create", "/organizations/update", "/organizations/delete"
                         ).hasAuthority(ROLE.ADMIN.toString())
-                        .requestMatchers("/", "/styles.css").permitAll()
+                        .requestMatchers("/", "/signup").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
