@@ -1,32 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Roles</title>
 </head>
 <body>
-<h1>Roles List</h1>
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody th:each="role : ${roles}">
-    <tr>
-        <td th:text="${role.name}"></td>
-        <td th:text="${role.description}"></td>
-        <td>
-            <!-- Only show edit and delete buttons for admin role -->
-            <div sec:authorize="hasRole('ADMIN')">
-                <button th:href="@{/roles/edit/{id}(id=${role.id})}">Edit</button>
-                <button th:href="@{/roles/delete/{id}(id=${role.id})}">Delete</button>
-            </div>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<h1>List Of Roles</h1>
+
+<ul>
+    <li>Employee</li>
+    <li>Admin</li>
+</ul>
+
 </body>
 </html>

@@ -35,7 +35,7 @@ As an Employee myUser, I can
    - [x] /users
    - [ ] /roles
    - [x] /organizations
-   - [ ] /employees
+   - [x] /employees
 - [ ] REST API
    - [ ] /api/login (JWT)
    - [ ] /api/signup (public)

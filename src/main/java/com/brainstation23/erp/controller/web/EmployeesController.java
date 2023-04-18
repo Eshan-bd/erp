@@ -17,13 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @Controller
 @ControllerAdvice
-@RequestMapping
 public class EmployeesController {
     private final UserService userService;
     private final UserMapper userMapper;
 
     @GetMapping("/employees")
-    public String users(Model model){
+    public String employees(Model model){
 
         log.info("Getting List of employees");
         var domains = userService.getAllByRole(PageRequest.of(0, 20), ROLE.EMPLOYEE);
