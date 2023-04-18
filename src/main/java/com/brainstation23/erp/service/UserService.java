@@ -1,6 +1,7 @@
 package com.brainstation23.erp.service;
 
 import com.brainstation23.erp.constant.ROLE;
+import com.brainstation23.erp.exception.custom.custom.AlreadyExistsException;
 import com.brainstation23.erp.exception.custom.custom.NotFoundException;
 import com.brainstation23.erp.mapper.UserMapper;
 import com.brainstation23.erp.model.domain.MyUser;
@@ -32,6 +33,7 @@ import java.util.regex.Pattern;
 @Service
 public class UserService{
 	public static final String USER_NOT_FOUND = "User Not Found";
+	public static final String USER_ALREADY_EXISTS= "User Already Exists";
 	private final UserRepository userRepository;
 	private final UserMapper userMapper;
 
@@ -52,6 +54,10 @@ public class UserService{
 	}
 
 	public UUID createOne(CreateUserRequest createRequest) {
+		if (userRepository.existsByUserName(createRequest.getUserName())){
+			throw new AlreadyExistsException(USER_ALREADY_EXISTS);
+		}
+
 		var entity = new UserEntity();
 		entity.setId(UUID.randomUUID())
 				.setRole(createRequest.getRole())

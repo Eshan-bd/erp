@@ -1,5 +1,6 @@
 package com.brainstation23.erp.service;
 
+import com.brainstation23.erp.exception.custom.custom.AlreadyExistsException;
 import com.brainstation23.erp.exception.custom.custom.NotFoundException;
 import com.brainstation23.erp.mapper.OrganizationMapper;
 import com.brainstation23.erp.model.domain.Organization;
@@ -21,6 +22,7 @@ import java.util.UUID;
 @Service
 public class OrganizationService {
 	public static final String ORGANIZATION_NOT_FOUND = "Organization Not Found";
+	public static final String ORGANIZATION_ALREADY_EXISTS= "Organization Already Exists";
 	private final OrganizationRepository organizationRepository;
 	private final OrganizationMapper organizationMapper;
 
@@ -36,6 +38,10 @@ public class OrganizationService {
 	}
 
 	public UUID createOne(CreateOrganizationRequest createRequest) {
+		if (organizationRepository.existsByName(createRequest.getName())){
+			throw new AlreadyExistsException(ORGANIZATION_ALREADY_EXISTS);
+		}
+
 		var entity = new OrganizationEntity();
 		entity.setId(UUID.randomUUID())
 				.setName(createRequest.getName())
