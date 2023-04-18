@@ -34,7 +34,7 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .antMatchers(
-                                "users", "/users/create", "/users/update", "/users/delete",
+                                "/users", "/users/create", "/users/update", "/users/delete",
                                 "/organizations/create", "/organizations/update", "/organizations/delete"
                         ).hasAuthority(ROLE.ADMIN.toString())
                         .antMatchers("/", "/styles.css").permitAll()
