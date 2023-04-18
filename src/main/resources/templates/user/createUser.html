@@ -11,10 +11,11 @@
 <div th:unless="${param.edit}" class="Create">
   <h1>Create New User</h1>
     <form th:action="@{/users/create}" th:object="${createRequest}" method="post">
-        <p>Username: <input type="text" th:field="*{username}" /></p>
+        <p>Username: <input type="text" th:field="*{userName}" /></p>
+        <p>Password: <input type="password" th:field="*{password}" /></p>
       <p>First name: <input th:required="true" type="text" th:field="*{firstName}" /></p>
         <p>Last name: <input th:required="true" type="text" th:field="*{lastName}" /></p>
-        <p>Balance: <input type="currency" th:field="*{balance}" /></p>
+        <p>Balance: <input type="number" th:field="*{balance}" /></p>
        <p>
            <label>Role: </label>
         <select name=Role th:field="*{role}">
