@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <title>Employees</title>
 </head>
 <body>
-<h1>Employee Registration Form</h1>
-<form th:action="@{/employees}" method="post" th:object="${myUser}">
-    <p>First Name: <input type="text" th:field="*{firstName}" /></p>
-    <p>Last Name: <input type="text" th:field="*{lastName}" /></p>
-    <p>Email: <input type="email" th:field="*{email}" /></p>
-    <p>Department: <select th:field="*{department}">
-        <option value="">Select</option>
-        <option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}"></option>
-    </select></p>
-    <p><input type="submit" value="Register" /></p>
-</form>
+
+<div class="list">
+    <h1>Employee List</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody th:each="myUser : ${employeeList.content}">
+
+        <div th:unless="${param.edit}">
+            <tr>
+                <td th:text="*{myUser.id}"></td>
+                <td th:text="*{myUser.firstName}+ ' ' +*{myUser.lastName}"></td>
+                <td th:text="*{myUser.balance}" ></td>
+                <td> <a th:href="@{users/update/{id}(id=${myUser.id})}" class="btn btn-primary">Edit</a> </td>
+                <td> <a th:href="@{users/delete/{id}(id=${myUser.id})}" class="btn btn-primary">Delete</a> </td>
+            </tr>
+        </div>
+
+        </tbody>
+    </table>
+
+</div>
 </body>
 </html>
