@@ -1,10 +1,7 @@
 package com.brainstation23.erp.controller.web;
 
-import com.brainstation23.erp.constant.ROLE;
 import com.brainstation23.erp.mapper.UserMapper;
-import com.brainstation23.erp.model.dto.CreateOrganizationRequest;
 import com.brainstation23.erp.model.dto.CreateUserRequest;
-import com.brainstation23.erp.model.dto.UpdateOrganizationRequest;
 import com.brainstation23.erp.model.dto.UpdateUserRequest;
 import com.brainstation23.erp.service.UserService;
 import lombok.RequiredArgsConstructor;

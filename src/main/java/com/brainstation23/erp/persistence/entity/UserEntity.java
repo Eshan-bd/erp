@@ -2,7 +2,10 @@ package com.brainstation23.erp.persistence.entity;
 
 import com.brainstation23.erp.constant.EntityConstant;
 import com.brainstation23.erp.constant.ROLE;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.Type;
 
