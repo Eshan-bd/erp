@@ -32,6 +32,16 @@ class LoadDatabase {
                     "Kazi Hardware",
                     RandomUtils.generateAlphaNumeric(6).toUpperCase()
                     )));
+            log.info("Preloading " + organizationRepository.save(new OrganizationEntity(
+                    UUID.randomUUID(),
+                    "Walton Television",
+                    RandomUtils.generateAlphaNumeric(6).toUpperCase()
+            )));
+            log.info("Preloading " + organizationRepository.save(new OrganizationEntity(
+                    UUID.randomUUID(),
+                    "RFL Furniture",
+                    RandomUtils.generateAlphaNumeric(6).toUpperCase()
+            )));
 
             // Users
             log.info("Preloading " + userRepository.save(new UserEntity(
@@ -43,6 +53,16 @@ class LoadDatabase {
                     400,
                     "{bcrypt}$2a$10$h/AJueu7Xt9yh3qYuAXtk.WZJ544Uc2kdOKlHu2qQzCh/A3rq46qm"
 //                    "{bcrypt}" + new BCryptPasswordEncoder().encode("pass")
+            )));
+            log.info("Preloading " + userRepository.save(new UserEntity(
+                    UUID.randomUUID(),
+                    "habib",
+                    ROLE.EMPLOYEE,
+                    "Habib",
+                    "Hasan",
+                    700,
+                    PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("abcd")
+//                    "{bcrypt}" + new BCryptPasswordEncoder().encode("1234")
             )));
             log.info("Preloading " + userRepository.save(new UserEntity(
                     UUID.randomUUID(),

@@ -18,8 +18,8 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         registry
-                .addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/static/")
+                .addResourceHandler("/assets/**")
+                .addResourceLocations("classpath:/assets/")
                 .setCachePeriod(30000000);
     }
 
