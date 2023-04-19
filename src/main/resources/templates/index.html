@@ -60,7 +60,9 @@
                 <li><a class="getstarted scrollto" th:href="@{/login}">Sign In</a></li>
                 </span>
                 <span sec:authorize="isAuthenticated()">
-                <li><a class="getstarted scrollto" th:href="@{/logout}">Sign Out</a></li>
+                <li>
+                    <form th:action="@{/logout}" method="post"><button class="getstarted scrollto" >Sign Out</button></form>
+                </li>
                 </span>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -78,7 +80,7 @@
                 <h1>Better Solutions For Your Business</h1>
                 <h2>We are team of talented engineers developing software for businesses</h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a th:href="@{/signup}" class="btn-get-started scrollto">Sign Up</a>
+                    <a sec:authorize="isAnonymous()" th:href="@{/signup}" class="btn-get-started scrollto">Sign Up</a>
                     <a href="https://youtu.be/t3TNSyGfQL4" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
                 </div>
             </div>

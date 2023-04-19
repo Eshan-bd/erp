@@ -52,7 +52,6 @@ class LoadDatabase {
                     "Rahman",
                     400,
                     "{bcrypt}$2a$10$h/AJueu7Xt9yh3qYuAXtk.WZJ544Uc2kdOKlHu2qQzCh/A3rq46qm"
-//                    "{bcrypt}" + new BCryptPasswordEncoder().encode("pass")
             )));
             log.info("Preloading " + userRepository.save(new UserEntity(
                     UUID.randomUUID(),
@@ -62,7 +61,6 @@ class LoadDatabase {
                     "Hasan",
                     700,
                     PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("abcd")
-//                    "{bcrypt}" + new BCryptPasswordEncoder().encode("1234")
             )));
             log.info("Preloading " + userRepository.save(new UserEntity(
                     UUID.randomUUID(),
@@ -72,7 +70,6 @@ class LoadDatabase {
                     "Uddin",
                     700,
                     PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("1234")
-//                    "{bcrypt}" + new BCryptPasswordEncoder().encode("1234")
             )));
         };
     }

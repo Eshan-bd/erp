@@ -27,10 +27,11 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(
-                                "/users", "/users/create", "/users/update", "/users/delete",
-                                "/organizations", "/organizations/create", "/organizations/update", "/organizations/delete"
+                         "/users/create", "/users/update", "/users/delete",
+                                "/organizations/create", "/organizations/update", "/organizations/delete"
                         ).hasAuthority(ROLE.ADMIN.toString())
-                        .requestMatchers("/organizations", "/users").hasAuthority(ROLE.EMPLOYEE.toString())
+                        .requestMatchers("/organizations", "/users").hasAnyAuthority(
+                                ROLE.ADMIN.toString(), ROLE.EMPLOYEE.toString())
                         .requestMatchers("/", "/signup", "/login").permitAll()
                         .anyRequest().authenticated()
                 )
