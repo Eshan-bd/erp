@@ -30,10 +30,10 @@ As an Employee myUser, I can
 * Database: H2
 
 ## Features
-- [ ] Server-Side (using Template Engine)
+- [x] Server-Side (using Template Engine)
    - [x] /login ()
    - [x] /users
-   - [ ] /roles
+   - [x] /roles
    - [x] /organizations
    - [x] /employees
 - [ ] REST API
@@ -47,12 +47,12 @@ As an Employee myUser, I can
 - [x] Code Formatter: Spotless
 - [x] Apply Spring Security
 - [x] Global Exception Handler
-- [ ] Implement JPA Auditing
+- [x] Implement JPA Auditing
 - [x] Write Unit Test
 - [x] Setup different database driver in different profile
-- [ ] Upgrade to Spring Boot 3
+- [x] Upgrade to Spring Boot 3
 - [ ] Deployment (profile: develop)
-- [ ] Update Documentation (README.md)
+- [x] Update Documentation (README.md)
 
 ## How to Build & Run
 1. Install Java 17 (LTS) of any distribution. You can try Amazon Corretto 17. You can find the installation instruction here: https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/what-is-corretto-17.html
