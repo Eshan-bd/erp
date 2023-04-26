@@ -32,8 +32,7 @@ public class WebSecurityConfig {
                         ).hasAuthority(ROLE.ADMIN.toString())
                         .requestMatchers("/organizations", "/users").hasAnyAuthority(
                                 ROLE.ADMIN.toString(), ROLE.EMPLOYEE.toString())
-                        .requestMatchers("/", "/signup", "/login").permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
                         .loginPage("/login").permitAll())
